@@ -46,3 +46,55 @@ interface Loopback0
  ip ospf 1 area 3
 ```
 ## IPv6
+
+### R1
+```
+ipv6 router ospf 1
+ router-id 1.1.1.1
+ 
+interface Loopback0
+ ipv6 ospf 1 area 1
+
+interface GigabitEthernet0/0
+ ipv6 ospf 1 area 1
+```
+### R2
+```
+ipv6 router ospf 1
+ router-id 2.2.2.2
+ 
+interface Loopback0
+ ipv6 ospf 1 area 0
+
+interface GigabitEthernet0/0
+ ipv6 ospf 1 area 1
+
+interface GigabitEthernet0/1
+ ipv6 ospf 1 area 0
+```
+### R3
+```
+ipv6 router ospf 1
+ router-id 3.3.3.3
+ log-adjacency-changes
+ 
+interface Loopback0
+ ipv6 ospf 1 area 0
+
+interface GigabitEthernet0/1
+ ipv6 ospf 1 area 0
+
+interface GigabitEthernet0/2
+ ipv6 ospf 1 area 2
+```
+### R4
+```
+ipv6 router ospf 1
+ router-id 4.4.4.4
+
+interface Loopback0
+ ipv6 ospf 1 area 2
+
+interface GigabitEthernet0/2
+ ipv6 ospf 1 area 2
+```
