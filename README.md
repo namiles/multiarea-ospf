@@ -19,3 +19,4 @@ You can find the full multiarea configuration for my IPv4 and IPv6 multiarea con
 ```
 
 ```
+## IPv6
